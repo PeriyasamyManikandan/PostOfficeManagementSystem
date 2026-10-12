@@ -1,0 +1,93 @@
+﻿
+@model PostOfficeManagementSystem.Models.Postoffice
+
+@{
+    ViewBag.Title = "Post Office Details";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">
+                <i class="glyphicon glyphicon-envelope"></i>
+                Post Office Record Details
+            </h3>
+            <small>View the complete details of the selected record.</small>
+        </div>
+
+        <div class="card-body">
+            <h5 class="text-secondary mb-3">
+                Customer Information
+            </h5>
+
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <th class="bg-light" style="width: 30%;">Record ID</th>
+                        <td>@Model.Id</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">First Name</th>
+                        <td>@Model.Firstname</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">Last Name</th>
+                        <td>@Model.Lastname</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">Address</th>
+                        <td>@Model.Address</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">Scheme Name</th>
+                        <td>
+                            <span class="label label-info">
+                                @Model.Schemename
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">Balance</th>
+                        <td>
+                            <strong class="text-success">
+                                ₹ @Model.Balance.ToString("N2")
+                            </strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">No. of Years</th>
+                        <td>@Model.No_of_years years</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">Mobile Number</th>
+                        <td>@Model.Mobile</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr />
+
+            <div class="text-right">
+                @Html.ActionLink(
+                    "Edit Record",
+                    "Edit",
+                    "PostOffice",
+                    new { id = Model.Id },
+                    new { @class = "btn btn-success" }
+                )
+
+                @Html.ActionLink(
+                    "Back to List",
+                    "Index",
+                    "PostOffice",
+                    null,
+                    new { @class = "btn btn-default" }
+                )
+            </div>
+        </div>
+
+        <div class="card-footer text-muted">
+            <small>Post Office Management System</small>
+        </div>
+    </div>
+</div>

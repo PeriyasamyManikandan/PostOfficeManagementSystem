@@ -1,0 +1,62 @@
+﻿
+@model PostOfficeManagementSystem.Models.Postoffice
+
+@{
+    ViewBag.Title = "Edit Post Office Record";
+}
+
+<h2>Edit Post Office Record</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Firstname, "First Name")<span class="text-danger">*</span>
+        @Html.TextBoxFor(m => m.Firstname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Firstname, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Lastname, "Last Name")<span class="text-danger">*</span>
+        @Html.TextBoxFor(m => m.Lastname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Lastname, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address)<span class="text-danger">*</span>
+        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Schemename, "Scheme Name")<span class="text-danger">*</span>
+        @Html.TextBoxFor(m => m.Schemename, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Schemename, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Balance)<span class="text-danger">*</span>
+        @Html.TextBoxFor(m => m.Balance, new { @class = "form-control", type = "number", step = "0.01" })
+        @Html.ValidationMessageFor(m => m.Balance, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.No_of_years, "Number of Years")<span class="text-danger">*</span>
+        @Html.TextBoxFor(m => m.No_of_years, new { @class = "form-control", type = "number" })
+        @Html.ValidationMessageFor(m => m.No_of_years, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Mobile)<span class="text-danger">*</span>
+        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Mobile, "", new { @class = "text-danger" })
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+}
